@@ -10,7 +10,6 @@ class OperatorController extends Zend_Controller_Action
 
     public function indexAction()
     {
-
         // Создаём объекты нашей модели
         $order = new Application_Model_DbTable_Order();
         $cabdriver = new Application_Model_DbTable_Cabdriver();
