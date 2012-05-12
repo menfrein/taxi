@@ -5,12 +5,20 @@ class OperatorController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+
     }
 
     public function indexAction()
     {
-        // action body
+
+        // Создаём объекты нашей модели
+        $order = new Application_Model_DbTable_Order();
+        $cabdriver = new Application_Model_DbTable_Cabdriver();
+        // Применяем метод fetchAll для выборки всех записей из таблицы,
+        // и передаём их в view, через следующую запись
+        $this->view->orders = $order->getOrders();
+        $this->view->cabdriver = $cabdriver->fetchAll();        // action body
+
     }
 
 

@@ -72,16 +72,15 @@ class Application_Form_Users extends Zend_Form
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             ); 
-//селект
+
         $role = new Zend_Form_Element_Select('role');
         $role->setLabel('Роль')
             ->addMultiOption ('operator','operator')  
-            ->addMultiOption ('admin','admin')  
-                
+            ->addMultiOption ('admin','admin')                  
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim');
-                    
+
         
         // Создаём элемент формы Submit c именем = submit
         $submit = new Zend_Form_Element_Submit('submit');
