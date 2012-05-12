@@ -1,0 +1,29 @@
+<?php
+    $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+    $this->headTitle()->setSeparator(' - ');
+    $this->headTitle('ТП на Zend Framework');
+    
+    echo $this->doctype();
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/taxi.css'); ?>
+</head>
+<body>
+<?php
+    // Применяем уже знакомый метод для проверки авторизации пользователя
+    if (Zend_Auth::getInstance()->hasIdentity()) {
+        $url = $this->url(array('controller'=>'auth', 'action'=>'logout'));
+        // если пользователь авторизирован, показываем ему кнопку "Выход"
+        echo "<a href=\"{$url}\">Выход</a>";          
+    }
+?>
+    <div id="content">
+        <h1><?php echo $this->escape($this->title); ?></h1>
+        <?php echo $this->layout()->content; ?>
+    </div>
+</body>
+</html>
