@@ -73,14 +73,15 @@ class Application_Form_Users extends Zend_Form
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             ); 
 
-        $role = new Zend_Form_Element_Text('role');
+        $role = new Zend_Form_Element_Select('role');
         $role->setLabel('Роль')
+            ->addMultiOption ('operator','operator')  
+            ->addMultiOption ('admin','admin')  
+                
             ->setRequired(true)
             ->addFilter('StripTags')
-            ->addFilter('StringTrim')
-            ->addValidator('NotEmpty', true,
-                array('messages' => array('isEmpty' => $isEmptyMessage))
-            );        
+            ->addFilter('StringTrim');
+                    
         
         // Создаём элемент формы Submit c именем = submit
         $submit = new Zend_Form_Element_Submit('submit');
