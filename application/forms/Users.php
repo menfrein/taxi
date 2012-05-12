@@ -72,7 +72,7 @@ class Application_Form_Users extends Zend_Form
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             ); 
-
+//тест
         $role = new Zend_Form_Element_Text('role');
         $role->setLabel('Роль')
             ->setRequired(true)
