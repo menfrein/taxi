@@ -13,10 +13,10 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
                 // Таблица из которой делается выборка
                 ->from($this->_name)
                 // Добавление таблицы с помощью join, указывается поле связи
-                //->join('users','users.id = articles.author_id',array('name'))
+                ->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
                 // Порядок сортировки
-                ->order('role ASC')
-                ->order('name ASC')
+                //->order('role ASC')
+                //->order('name ASC')
                 // Количество возвращаемых записей
                 //->limit(2)
                 ;

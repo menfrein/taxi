@@ -1,4 +1,39 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Operator</b> and script/action name <b>index</b></p>
-</div>
+<?php
+// Создаём заголовок страницы, который загрузится в layout
+$this->title = "Заказы";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'operator','action'=>'addorder'));?>">Добавить заказ</a></p>
+<h1>Список заказов</h1>
+<table>
+    <tr>
+        <th>Время</th>
+        <th>Откуда</th>
+        <th>Куда</th>
+        <th>Имя таксист</th>
+        <th>Телефон таксиста</th>
+        <th>Телефон клиента</th> 
+        <th>Имя клиент</th> 
+        <th>Статус</th>
+    </tr>
+    <?php
+        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+        echo $this->partialLoop('partials/orders.phtml', $this->orders);
+    ?>
+</table>
+<h1>Список таксистов</h1>
+<table>
+    <tr>
+        
+        <th>ФИО</th>
+        <th>Телефон</th>
+        <th>Статус</th>                
+        <th>№ машины</th>
+        <th>Описание машины</th>
+        <th>&nbsp;</th> 
+    </tr>    
+    <?php
+        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+        echo $this->partialLoop('partials/cabdriver.phtml', $this->cabdriver);
+    ?>     
+</table>
