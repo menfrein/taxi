@@ -64,7 +64,7 @@ class Application_Form_Cabdriver extends Zend_Form
             );        
 
         // Создаём пятый текстовой элемент формы и проделываем те же операции
-        $list_car = new Zend_Form_Element_Text('list_car');
+        $list_car = new Zend_Form_Element_Textarea('list_car');
         $list_car->setLabel('Описание машины')
             ->setRequired(true)
             ->addFilter('StripTags')
