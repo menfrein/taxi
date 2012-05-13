@@ -4,7 +4,27 @@ class Application_Model_DbTable_Cabdriver extends Zend_Db_Table_Abstract
 {
     // Имя таблицы, с которой будем работать
     protected $_name = 'cabdriver';
-    
+    //Получение всех таксистов (сортированный список)
+    public function getCabdrivers()
+        {
+            // Создаем объект Zend_Db_Select
+            $select = $this->getAdapter()->select()
+                // Таблица из которой делается выборка
+                ->from($this->_name)
+                // Добавление таблицы с помощью join, указывается поле связи
+                //->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
+                // Порядок сортировки
+                ->order('status ASC')
+                //->order('name ASC')
+                // Количество возвращаемых записей
+                //->limit(2)
+                ;
+            $stmt = $this->getAdapter()->query($select);
+            // Получение данных в виде массива объектов, по умолчанию в виде массива ассоциативных массивов
+            $result = $stmt->fetchAll(Zend_Db::FETCH_OBJ);        
+
+            return $result;
+        }    
     // Метод для получения записи по id
     public function getCabdriver($id)
     {
@@ -33,13 +53,30 @@ class Application_Model_DbTable_Cabdriver extends Zend_Db_Table_Abstract
             'phone' => $phone,
             'namber_car' => $namber_car,
             'list_car' => $list_car,
-            'status' => $status            
+            'status' => $status           
         );
         
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
     }
-    
+    // Метод для измениения статуса у таксиста
+    public  function statusCabdriver($id,$status)
+    {
+        $row = $this->fetchRow('id = ' . $id);
+        // Формируем массив значений
+        $data = array(
+            'name' => $row->name,
+            'contract' => $row->contract,
+            'phone' => $row->phone,
+            'namber_car' => $row->namber_car,
+            'list_car' => $row->list_car,
+            'status' => $status 
+        );
+        
+        // Используем метод update для обновления записи
+        // В скобках указываем условие обновления (привычное для вас where)
+        $this->update($data, 'id = ' . (int)$id);
+    }    
     // Метод для обновления записи
     public  function updateCabdriver($id,$name,$contract,$phone,$namber_car,$list_car,$status)
     {

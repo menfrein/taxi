@@ -16,7 +16,7 @@ class AdminController extends Zend_Controller_Action
         // Применяем метод fetchAll для выборки всех записей из таблицы,
         // и передаём их в view, через следующую запись
         $this->view->users = $users->getUsers();
-        $this->view->cabdriver = $cabdriver->fetchAll();
+        $this->view->cabdriver = $cabdriver->getCabdrivers();
     }
 
     public function adduserAction()
@@ -208,7 +208,7 @@ class AdminController extends Zend_Controller_Action
                 $cabdriver = new Application_Model_DbTable_Cabdriver();
 
                 // Вызываем метод модели addOperator для вставки новой записи
-                $cabdriver->addCabdriver($name, $contract, $phone, $namber_car, $list_car);
+                $cabdriver->addCabdriver($name, $contract, $phone, $namber_car, $list_car, 'не работает');
 
                 // Используем библиотечный helper для редиректа на action = admin
                 $this->_helper->redirector('admin');
@@ -298,7 +298,7 @@ class AdminController extends Zend_Controller_Action
                 $cabdriver = new Application_Model_DbTable_Cabdriver();
 
                 // Вызываем метод модели updateAdmin для обновления новой записи
-                $cabdriver->updateCabdriver($id, $name, $contract, $phone, $namber_car, $list_car);
+                $cabdriver->updateCabdriver($id, $name, $contract, $phone, $namber_car, $list_car, 'не работает');
 
                 // Используем библиотечный helper для редиректа на action = index
                 $this->_helper->redirector('index');

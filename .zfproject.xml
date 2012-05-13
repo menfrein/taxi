@@ -36,6 +36,14 @@
         </controllerFile>
         <controllerFile controllerName="Operator">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="onwork"/>
+          <actionMethod actionName="offwork"/>
+          <actionMethod actionName="editorder"/>
+          <actionMethod actionName="closeorder"/>
+          <actionMethod actionName="canselorder"/>
+          <actionMethod actionName="addorder"/>
+          <actionMethod actionName="censelorder"/>
+          <actionMethod actionName="cancelorder"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -126,6 +134,30 @@
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="deleteUser"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="onwork"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="offwork"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="editorder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="closeorder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="canselorder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="addorder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="censelorder"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="cancelorder"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -187,6 +219,14 @@
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Operator">
             <testApplicationActionMethod forActionName="index"/>
+            <testApplicationActionMethod forActionName="onwork"/>
+            <testApplicationActionMethod forActionName="offwork"/>
+            <testApplicationActionMethod forActionName="editorder"/>
+            <testApplicationActionMethod forActionName="closeorder"/>
+            <testApplicationActionMethod forActionName="canselorder"/>
+            <testApplicationActionMethod forActionName="addorder"/>
+            <testApplicationActionMethod forActionName="censelorder"/>
+            <testApplicationActionMethod forActionName="cancelorder"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

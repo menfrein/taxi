@@ -50,6 +50,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         
         $acl->allow('admin', 'index');       
 
+        //- разрешаем operator просматривать ресурс operator
+        $acl->allow('operator', 'operator', array('index','onwork','offwork', 'closeorder', 'editorder', 'cancelorder', 'addorder'));        
+
         
         // получаем экземпляр главного контроллера
         $fc = Zend_Controller_Front::getInstance();
