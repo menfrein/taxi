@@ -44,6 +44,7 @@
           <actionMethod actionName="addorder"/>
           <actionMethod actionName="censelorder"/>
           <actionMethod actionName="cancelorder"/>
+          <actionMethod actionName="appoint"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -52,6 +53,8 @@
         <formFile formName="Admin"/>
         <formFile formName="Cabdrive"/>
         <formFile formName="Users"/>
+        <formFile formName="AddOrder"/>
+        <formFile formName="CancelOrder"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -158,6 +161,9 @@
           <viewControllerScriptsDirectory forControllerName="Operator">
             <viewScriptFile forActionName="cancelorder"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Operator">
+            <viewScriptFile forActionName="appoint"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -227,6 +233,7 @@
             <testApplicationActionMethod forActionName="addorder"/>
             <testApplicationActionMethod forActionName="censelorder"/>
             <testApplicationActionMethod forActionName="cancelorder"/>
+            <testApplicationActionMethod forActionName="appoint"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

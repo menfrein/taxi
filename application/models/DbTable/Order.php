@@ -13,7 +13,7 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
                 // Таблица из которой делается выборка
                 ->from($this->_name)
                 // Добавление таблицы с помощью join, указывается поле связи
-                ->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
+    //            ->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
                 // Порядок сортировки
                 //->order('role ASC')
                 //->order('name ASC')
@@ -44,39 +44,55 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
     // Метод для добавление новой записи        
-    public function addOrder($name, $contract, $phone, $username, $password, $role)
+    public function addOrder($date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments)
     {
         // Формируем массив вставляемых значений
         $data = array(
-            'name' => $name,
-            'contract' => $contract,
-            'phone' => $phone,
-            'username' => $username,
-            'password' => $password,
-            'role' => $role            
-        );
-        
+            'date' => $date,
+            'time_start' => $time_start,
+            'phone_client' => $phone_client,
+            'name_client' => $name_client,            
+            'address_start' => $address_start,
+            'address_stop' => $address_stop,
+            'parking' => $parking,
+            'comments' => $comments           
+        );        
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
     }
     // Метод для обновления записи
-    public  function updateOrder($id, $name, $contract, $phone, $username, $password, $role)
+    public  function updateOrder($id, $date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments)
     {
         // Формируем массив значений
         $data = array(
-            'name' => $name,
-            'contract' => $contract,
-            'phone' => $phone,
-            'username' => $username,
-            'password' => $password,
-            'role' => $role
-        );
+            'date' => $date,
+            'time_start' => $time_start,
+            'phone_client' => $phone_client,
+            'name_client' => $name_client,            
+            'address_start' => $address_start,
+            'address_stop' => $address_stop,
+            'parking' => $parking,
+            'comments' => $comments           
+        ); 
         
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
         $this->update($data, 'id = ' . (int)$id);
     }
-  
+    public function cancelOrder($id, $failure,$fault_t,$fault_c, $status)
+    {         
+        //$data = $row;
+        // Формируем массив вставляемых значений
+        $data = array(
+            'failure' => $failure,
+            'fault_t' => $fault_t,
+            'fault_c' => $fault_c,
+            'status' => $status 
+        );        
+        // Используем метод update для обновления записи
+        // В скобках указываем условие обновления (привычное для вас where)
+        $this->update($data, 'id = ' . (int)$id);
+    }  
     
 }
 
