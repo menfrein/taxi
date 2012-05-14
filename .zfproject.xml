@@ -55,6 +55,7 @@
         <formFile formName="Users"/>
         <formFile formName="AddOrder"/>
         <formFile formName="CancelOrder"/>
+        <formFile formName="CloseOrder"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

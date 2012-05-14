@@ -112,7 +112,59 @@ class OperatorController extends Zend_Controller_Action
 
     public function closeorderAction()
     {
-        // action body
+                // Создаём форму
+                $form = new Application_Form_CloseOrder();
+
+                // Указываем текст для submit
+                $form->submit->setLabel('Закрыть заказ');
+                $this->view->form = $form;
+
+                // Если к нам идёт Post запрос
+                if ($this->getRequest()->isPost()) {
+                // Принимаем его
+                $formData = $this->getRequest()->getPost();
+
+                // Если форма заполнена верно
+                if ($form->isValid($formData)) {
+                        // Извлекаем id
+                $id = (int)$form->getValue('id');
+
+                $money = $form->getValue('money');
+                
+                $address_stop = $form->getValue('address_stop'); 
+
+                $time_stop = $form->getValue('time_stop');               
+
+                $comments = $form->getValue('comments');
+                
+                $parking = $form->getValue('parking');
+                
+                $status = 'закрыт';
+                
+                // Создаём объект модели
+                $order = new Application_Model_DbTable_Order();
+
+                // Вызываем метод модели closeOrder для обновления новой записи
+                $order->closeOrder($id, $money, $address_stop, $time_stop, $parking, $comments, $status);
+
+                // Используем библиотечный helper для редиректа на action = index
+                $this->_helper->redirector('index');
+            } else {
+                $form->populate($formData);
+            }
+        } else {
+            // Если мы выводим форму, то получаем id администратора, который хотим обновить
+            $id = $this->_getParam('id', 0);
+            if ($id > 0) {
+                // Создаём объект модели
+                $order = new Application_Model_DbTable_Order();
+
+                // Заполняем форму информацией при помощи метода populate
+                $form->populate($order->getOrder($id));
+            }
+        
+        
+    }
     }
 
     public function addorderAction()
@@ -147,13 +199,13 @@ class OperatorController extends Zend_Controller_Action
                 
                 $comments = $form->getValue('comments');
                 
-                //$comments = $form->getValue('comments');
+                $status = 'в ожидании';
                 
                 // Создаём объект модели
                 $order = new Application_Model_DbTable_Order();
 
                 // Вызываем метод модели addOrder для вставки новой записи
-                $order->addOrder($date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments);
+                $order->addOrder($date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments, $status);
 
                 // Используем библиотечный helper для редиректа на action = operator
                 $this->_helper->redirector('operator');
