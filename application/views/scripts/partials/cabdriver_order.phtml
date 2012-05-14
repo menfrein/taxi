@@ -1,11 +1,11 @@
 <tr>
     <td><?php echo $this->escape($this->name);?></td>
-    <td><?php echo $this->escape($this->contract);?></td>
     <td><?php echo $this->escape($this->phone);?></td>
-    <td><?php echo $this->escape($this->namber_car);?></td>
-    <td colspan="2"><?php echo $this->escape($this->list_car);?></td>
+    <td><?php echo $this->escape($this->status);?></td>
+    <?php if($this->status == 'свободен'){
+        echo"
     <td>
-        <a href="<?php  echo $this->url(array('controller'=>'admin', 'action'=>'appoint', 'id'=>$this->id));?>">Назначить</a>
-    </td> 
+<a href=\".$this->url(array('controller'=>'operator', 'action'=>'appoint', 'id_cab'=>$this->id)).\">Назначить</a>
+    </td>
+    ";}?>    
 </tr>
-

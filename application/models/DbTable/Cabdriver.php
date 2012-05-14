@@ -14,8 +14,8 @@ class Application_Model_DbTable_Cabdriver extends Zend_Db_Table_Abstract
                 // Добавление таблицы с помощью join, указывается поле связи
                 //->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
                 // Порядок сортировки
-                ->order('status ASC')
-                //->order('name ASC')
+                ->order('status DESC')
+                ->order('name ASC')
                 // Количество возвращаемых записей
                 //->limit(2)
                 ;
@@ -65,11 +65,11 @@ class Application_Model_DbTable_Cabdriver extends Zend_Db_Table_Abstract
         $row = $this->fetchRow('id = ' . $id);
         // Формируем массив значений
         $data = array(
-            'name' => $row->name,
+           /* 'name' => $row->name,
             'contract' => $row->contract,
             'phone' => $row->phone,
             'namber_car' => $row->namber_car,
-            'list_car' => $row->list_car,
+            'list_car' => $row->list_car,*/
             'status' => $status 
         );
         

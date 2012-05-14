@@ -143,6 +143,14 @@ class OperatorController extends Zend_Controller_Action
                 
                 // Создаём объект модели
                 $order = new Application_Model_DbTable_Order();
+                
+                $cabdriver = new Application_Model_DbTable_Cabdriver();
+                
+                $cab = $order->getOrder($id);
+                
+                $status_cab = "свободен";
+                
+                $cabdriver->statusCabdriver($cab['id_cab'], $status_cab);
 
                 // Вызываем метод модели closeOrder для обновления новой записи
                 $order->closeOrder($id, $money, $address_stop, $time_stop, $parking, $comments, $status);
@@ -251,7 +259,14 @@ class OperatorController extends Zend_Controller_Action
                 
                 // Создаём объект модели
                 $order = new Application_Model_DbTable_Order();
-
+                
+                $cabdriver = new Application_Model_DbTable_Cabdriver();
+                
+                $cab = $order->getOrder($id);
+                
+                $status_cab = "свободен";
+                
+                $cabdriver->statusCabdriver($cab['id_cab'], $status_cab);    
                  // Вызываем метод модели updateOrder для обновления новой записи
                 $order->cancelOrder($id, $failure,$fault_t,$fault_c, $status);
                 
@@ -270,8 +285,36 @@ class OperatorController extends Zend_Controller_Action
         $cabdriver = new Application_Model_DbTable_Cabdriver();
         // Применяем метод fetchAll для выборки всех записей из таблицы,
         // и передаём их в view, через следующую запись
-        $this->view->cabdriver = $cabdriver->getCabdrivers();     
+        $id = $this->_getParam('id', 0);
+        $this->view->cabdriver = $cabdriver->getCabdrivers();
+        $this->view->id = array('id'=>$id);
+        
+        // Если к нам идёт Post запрос
+                if ($this->_getParam('id_cab', 0)) {
+                // Принимаем его
+                // Извлекаем id
+                $id = (int)$this->_getParam('id', 0);
 
+                $id_cab = (int)$this->_getParam('id_cab', 0);
+                
+                $status = 'на обслуживании';
+                
+                // Создаём объект модели
+                $order = new Application_Model_DbTable_Order();
+
+                 // Вызываем метод модели updateOrder для обновления новой записи
+                $order->appointTaxiOrder($id, $id_cab, $status);
+                
+                $cabdriver = new Application_Model_DbTable_Cabdriver();
+                
+                $status_cab = "занят";
+                
+                $cabdriver->statusCabdriver($id_cab, $status_cab);
+                
+                // Используем библиотечный helper для редиректа на action = index
+                $this->_helper->redirector('operator');
+
+         }
     }
 
 

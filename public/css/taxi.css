@@ -13,9 +13,12 @@ a {
 /* Таблица */
 th {
     text-align: left;
+    
 }
 td, th {
     padding-right: 5px;
+    border-width: 1px;
+    border-style:inset;
     
 }
 

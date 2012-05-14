@@ -44,7 +44,7 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
     // Метод для добавление новой записи        
-    public function addOrder($date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments)
+    public function addOrder($date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments, $status)
     {
         // Формируем массив вставляемых значений
         $data = array(
@@ -55,13 +55,14 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
             'address_start' => $address_start,
             'address_stop' => $address_stop,
             'parking' => $parking,
-            'comments' => $comments           
+            'comments' => $comments,
+            'status' => $status
         );        
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
     }
     // Метод для обновления записи
-    public  function updateOrder($id, $date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments, $status)
+    public  function updateOrder($id, $date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments)
     {
         // Формируем массив значений
         $data = array(
@@ -72,8 +73,7 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
             'address_start' => $address_start,
             'address_stop' => $address_stop,
             'parking' => $parking,
-            'comments' => $comments,
-            'status' => $status
+            'comments' => $comments
         ); 
         
         // Используем метод update для обновления записи
@@ -96,7 +96,7 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
     }  
     public function closeOrder($id, $money, $address_stop, $time_stop, $parking, $comments, $status)
     {         
-        //$data = $row;
+
         // Формируем массив вставляемых значений
         $data = array(
             'time_stop' => $time_stop,
@@ -110,6 +110,19 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
         $this->update($data, 'id = ' . (int)$id);
-    }     
+    }
+    
+    public function appointTaxiOrder($id, $id_cab, $status)
+    {         
+
+        // Формируем массив вставляемых значений
+        $data = array(
+            'id_cab' => $id_cab,
+            'status' => $status 
+        );        
+        // Используем метод update для обновления записи
+        // В скобках указываем условие обновления (привычное для вас where)
+        $this->update($data, 'id = ' . (int)$id);
+    }    
 }
 
