@@ -24,7 +24,8 @@ class Application_Model_DbTable_Cabdriver extends Zend_Db_Table_Abstract
             $result = $stmt->fetchAll(Zend_Db::FETCH_OBJ);        
 
             return $result;
-        }    
+        } 
+     
     // Метод для получения записи по id
     public function getCabdriver($id)
     {

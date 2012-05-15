@@ -18,6 +18,20 @@ $this->headTitle($this->title);
     </tr>
     <?php
         // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+        echo $this->partialLoop('partials/ordersNotAppoint.phtml', $this->ordersNotAppoint);
+    ?>    
+    <tr>
+        <th>Время</th>
+        <th>Откуда</th>
+        <th>Куда</th>
+        <th>Имя таксист</th>
+        <th>Телефон таксиста</th>
+        <th>Имя клиент</th>
+        <th>Телефон клиента</th>          
+        <th>Статус</th>
+    </tr>
+    <?php
+        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
         echo $this->partialLoop('partials/orders.phtml', $this->orders);
     ?>
 </table>

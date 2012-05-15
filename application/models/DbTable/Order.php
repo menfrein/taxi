@@ -11,11 +11,12 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
             // Создаем объект Zend_Db_Select
             $select = $this->getAdapter()->select()
                 // Таблица из которой делается выборка
-                ->from($this->_name)
+                ->from($this->_name)                
                 // Добавление таблицы с помощью join, указывается поле связи
-    //            ->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
+                ->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
+                ->where( "order.status = ?", "на обслуживании" )
                 // Порядок сортировки
-                //->order('role ASC')
+                ->order('status ASC')
                 //->order('name ASC')
                 // Количество возвращаемых записей
                 //->limit(2)
@@ -26,6 +27,27 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
 
             return $result;
         }
+    public function getOrdersNotAppoint()
+        {
+            // Создаем объект Zend_Db_Select
+            $select = $this->getAdapter()->select()
+                // Таблица из которой делается выборка
+                ->from($this->_name)
+                // Добавление таблицы с помощью join, указывается поле связи
+                //->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
+                // Порядок сортировки
+                ->where( "status = ?", "в ожидании" )
+                ->order('status ASC')
+                //->order('name ASC')
+                // Количество возвращаемых записей
+                //->limit(2)
+                ;
+            $stmt = $this->getAdapter()->query($select);
+            // Получение данных в виде массива объектов, по умолчанию в виде массива ассоциативных массивов
+            $result = $stmt->fetchAll(Zend_Db::FETCH_OBJ);        
+
+            return $result;
+        }        
     // Метод для получения записи по id
     public function getOrder($id)
     {

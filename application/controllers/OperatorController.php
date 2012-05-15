@@ -13,9 +13,11 @@ class OperatorController extends Zend_Controller_Action
         $order = new Application_Model_DbTable_Order();
         $cabdriver = new Application_Model_DbTable_Cabdriver();
         // Применяем метод fetchAll для выборки всех записей из таблицы,
-        // и передаём их в view, через следующую запись
+        // и передаём их в view, через следующую запись        
+        $this->view->ordersNotAppoint = $order->getOrdersNotAppoint();
         $this->view->orders = $order->getOrders();
-        $this->view->cabdriver = $cabdriver->getCabdrivers();     
+        $this->view->cabdriver = $cabdriver->getCabdrivers();
+        
 
     }
 
@@ -168,7 +170,9 @@ class OperatorController extends Zend_Controller_Action
                 $order = new Application_Model_DbTable_Order();
 
                 // Заполняем форму информацией при помощи метода populate
-                $form->populate($order->getOrder($id));
+                $arr = $order->getOrder($id);
+                $arr['time_stop'] = date("H:i");
+                $form->populate($arr);
             }
         
         
@@ -301,11 +305,15 @@ class OperatorController extends Zend_Controller_Action
                 
                 // Создаём объект модели
                 $order = new Application_Model_DbTable_Order();
-
-                 // Вызываем метод модели updateOrder для обновления новой записи
-                $order->appointTaxiOrder($id, $id_cab, $status);
                 
                 $cabdriver = new Application_Model_DbTable_Cabdriver();
+                $cab = $order->getOrder($id);
+                if($cab['id_cab'] != null){
+                    $status_cab = "свободен";                
+                    $cabdriver->statusCabdriver($cab['id_cab'], $status_cab);  
+                }
+                 // Вызываем метод модели appointTaxiOrder для обновления новой записи
+                $order->appointTaxiOrder($id, $id_cab, $status);
                 
                 $status_cab = "занят";
                 
@@ -316,7 +324,21 @@ class OperatorController extends Zend_Controller_Action
 
          }
     }
-
+    public function cancelcabdriverAction()
+    {
+        $cabdriver = new Application_Model_DbTable_Cabdriver();
+        $order = new Application_Model_DbTable_Order();
+        $id = $this->_getParam('id', 0);
+        $cab = $order->getOrder($id);
+        if($cab['id_cab'] != null){
+            $status_cab = "свободен";                
+            $cabdriver->statusCabdriver($cab['id_cab'], $status_cab);  
+        }
+        $id_cab = NULL;
+        $status = "в ожидании";
+        $order->appointTaxiOrder($id, $id_cab, $status);
+        $this->_helper->redirector('operator');
+    }
 
 }
 

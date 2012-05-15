@@ -2,17 +2,16 @@
     <td><?php echo $this->escape($this->name);?></td>
     <td><?php echo $this->escape($this->phone);?></td>
     <td><?php echo $this->escape($this->status);?></td>
-    <td>
-        <a href=<?php echo '"';
-            if($this->status == 'не работает'){ 
-                echo $this->url(array('controller'=>'operator', 'action'=>'onwork', 'id'=>$this->id)).'">Принять на рейсы';                 
+    <?php 
+    if($this->status == 'не работает'){ 
+                $str = $this->url(array('controller'=>'operator', 'action'=>'onwork', 'id'=>$this->id)).'">Принять на рейсы';                 
             }
             else{
-                echo $this->url(array('controller'=>'operator', 'action'=>'offwork', 'id'=>$this->id)).'">Снять с рейсов';
+                $str = $this->url(array('controller'=>'operator', 'action'=>'offwork', 'id'=>$this->id)).'">Снять с рейсов';
             }
-            
-            ?> </a>
-
-    </td> 
+    
+    if($this->status != 'занят'){
+    echo"<td><a href=\"$str</a>        
+    </td>";}?> 
 </tr>
 
