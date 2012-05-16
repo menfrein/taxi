@@ -64,7 +64,7 @@ class Application_Form_AddOrder extends Zend_Form
         
         $date = new Zend_Form_Element_Text('date');
         $date->setLabel('Дата')
-            ->setValue(date("d.m.Y"))    
+            ->setValue(date("Y.m.d"))    
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
