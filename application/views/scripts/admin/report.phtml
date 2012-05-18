@@ -1,0 +1,36 @@
+<?php
+    // Создаём заголовок страницы, который загрузится в layout
+
+    $this->title = "Отчет";
+    $this->headTitle($this->title);
+
+    // Выводим форму, полученную из контроллера
+    
+?>
+<table>
+    <tr>        
+        <th>ФИО</th>
+        <th>Число заказов</th>
+        <th>Сумма</th> 
+    </tr>    
+    <?php
+        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+        echo $this->partialLoop('partials/report.phtml', $this->report);
+    ?>
+    <tr>        
+        <th>Cумма</th>
+        <th>
+            <?php
+            echo $this->count ;
+            ?>            
+        </th>
+        <th>
+            <?php
+            echo $this->sum ;
+            ?>
+        </th> 
+    </tr>      
+</table>
+<?php
+echo $this->form ;
+?>

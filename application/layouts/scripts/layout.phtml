@@ -19,10 +19,15 @@
         $url = $this->url(array('controller'=>'auth', 'action'=>'logout'));
         // если пользователь авторизирован, показываем ему кнопку "Выход"
         echo "<a href=\"{$url}\">Выход</a>";          
-    }
+    };
+    echo '<br>';
+    if (Zend_Auth::getInstance()->hasIdentity()) {
+        $url = $this->url(array('controller'=>'admin', 'action'=>'integer'));
+        // если пользователь авторизирован, показываем ему кнопку "Выход"
+        echo "<a href=\"{$url}\">На главную</a>";          
+    }    
 ?>
     <div id="content">
-        <h1><?php echo $this->escape($this->title); ?></h1>
         <?php echo $this->layout()->content; ?>
     </div>
 </body>

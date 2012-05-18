@@ -134,9 +134,9 @@ class AdminController extends Zend_Controller_Action
                 $form->populate($users->getUser($id));
             }
         
-        }
+        
     }
-
+    }
     public function deleteuserAction()
     {
         // Если к нам идёт Post запрос
@@ -168,7 +168,8 @@ class AdminController extends Zend_Controller_Action
 
             // Достаём запись и передаём в view
             $this->view->user = $users->getUser($id); 
-        }
+        
+    }
     }
     public function addcabdriverAction()
     {
@@ -256,12 +257,13 @@ class AdminController extends Zend_Controller_Action
             $this->view->cabdriver = $cabdriver->getCabdriver($id); 
     
  
+    
     }
     }
-
     public function editcabdriverAction()
-
     {
+
+    
         // Создаём форму
         $form = new Application_Form_Cabdriver();
 
@@ -316,11 +318,44 @@ class AdminController extends Zend_Controller_Action
                 $form->populate($admin->getCabdriver($id));
             }
         
+    
     }
     }
+    public function reportAction()
+    {
 
+                // Создаём форму
+                $form = new Application_Form_Report();
+
+                // Указываем текст для submit
+                $form->submit->setLabel('Ок');
+                
+                $form->date->setValue(date("Y.m.d"));                
+                $report = new Application_Model_DbTable_Report();
+                $date = date("Y.m.d");
+                // Если к нам идёт Post запрос
+                if ($this->getRequest()->isPost()) {
+                    // Принимаем его
+                    $formData = $this->getRequest()->getPost();
+                    // Если форма заполнена верно
+                    if ($form->isValid($formData)) {
+                            $date = $form->getValue('date');                
+                        } else {
+                            $form->populate($formData);
+                        }           
+                }
+                $status='закрыт';
+                $sum = $report->getSum($date, $status);
+                $count = $report->getCount($date, $status);
+                $this->view->form = $form;            
+                $this->view->count = $count['0']['date']; 
+                $this->view->sum = $sum['0']['money'];
+                $this->view->report = $report->getReport($date, $status);
+    }
 
 }
+
+
 
 
 

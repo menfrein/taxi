@@ -66,7 +66,7 @@ class Application_Model_DbTable_Order extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
     // Метод для добавление новой записи        
-    public function addOrder($date,$phone_client,$name_client, $time_start, $address_start, $address_stop, $parking , $comments, $status)
+    public function addOrder($date,$phone_client,$name_client, $time_start,$address_start,$address_stop,$parking,$comments,$status)
     {
         // Формируем массив вставляемых значений
         $data = array(

@@ -46,7 +46,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->allow('admin', 'error');     
 
         //- разрешаем admin просматривать ресурс admin
-        $acl->allow('admin', 'admin', array('index','adduser','edituser','deleteuser','addcabdriver','editcabdriver','deletecabdriver'));        
+        $acl->allow('admin', 'admin', array('index','adduser','edituser','deleteuser','addcabdriver','editcabdriver','deletecabdriver', 'report'));        
         
         $acl->allow('admin', 'index');       
 

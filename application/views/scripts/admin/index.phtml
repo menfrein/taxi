@@ -1,8 +1,13 @@
+<h1>Отчет</h1>
 <?php
-// Создаём заголовок страницы, который загрузится в layout
-$this->title = "Добавить сотрудника";
-$this->headTitle($this->title);
+    // Применяем уже знакомый метод для проверки авторизации пользователя
+    if (Zend_Auth::getInstance()->hasIdentity()) {        
+        $url = $this->url(array('controller'=>'admin', 'action'=>'report'));
+        // если пользователь авторизирован, показываем ему кнопку "Отчет"
+        echo "<a href=\"{$url}\">Отчет</a>";          
+    }
 ?>
+<h1>Добавить сотрудника</h1>
 <p><a href="<?php echo $this->url(array('controller'=>'admin','action'=>'adduser'));?>">Добавить нового оператора или администратора</a></p>
 <p><a href="<?php echo $this->url(array('controller'=>'admin','action'=>'addcabdriver'));?>">Добавить нового таксиста</a></p>
 <h1>Список операторов и администраторов</h1>
