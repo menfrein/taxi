@@ -4,6 +4,11 @@
     $this->title = "Редактирование таксиста";
     $this->headTitle($this->title);
 
+    echo "<div class='content-title'>";
+    echo "<h3>Редактирование учетной записи водителя</h3>"; 
+    echo "</div><!-- end content-title -->";
     // Выводим форму, полученную из контроллера
+    echo "<div class='active-tickets' style='width: 300px; '>";
     echo $this->form ;
+    echo "</div>";
 ?>

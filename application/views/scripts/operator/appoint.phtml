@@ -3,15 +3,22 @@
 $this->title = "Список таксистов";
 $this->headTitle($this->title);
 ?>
-<table>
-    <tr>        
-        <th>ФИО</th>
-        <th>Телефон</th>
-        <th>Статус</th>                
-        <th>&nbsp;</th> 
-    </tr>    
-    <?php
-        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
-        echo $this->partialLoop('partials/cabdriver_order.phtml', $this->cabdriver);
-    ?>     
-</table>
+
+<h1>Назначить водителя</h1>
+
+<div class="active-tickets" style="width: 550px; ">
+    <table>
+        <tr>        
+            <th>ФИО</th>
+            <th>Телефон</th>
+            <th>Статус</th>                
+            <th>&nbsp;</th> 
+        </tr>    
+        <?php
+            // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+            echo $this->partialLoop('partials/cabdriver_order.phtml', $this->cabdriver);
+        ?>     
+    </table>
+</div>
+
+<div class='main-menu-close'></div>

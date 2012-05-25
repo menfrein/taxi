@@ -4,5 +4,12 @@
     $this->headTitle($this->title);
     
     // Выводим форму, полученную из контроллера
+    echo "<div class='content-title'>";
+    echo "<h3>Добавление водителя</h3>"; 
+    echo "</div><!-- end content-title -->";
+    
+
+    echo "<div class='active-tickets' style='width: 300px; padding-top: 0; '>";
     echo $this->form ;
+    echo "</div>";
 ?>

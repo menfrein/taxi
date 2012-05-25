@@ -7,30 +7,39 @@
     // Выводим форму, полученную из контроллера
     
 ?>
-<table>
-    <tr>        
-        <th>ФИО</th>
-        <th>Число заказов</th>
-        <th>Сумма</th> 
-    </tr>    
-    <?php
-        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
-        echo $this->partialLoop('partials/report.phtml', $this->report);
-    ?>
-    <tr>        
-        <th>Cумма</th>
-        <th>
-            <?php
-            echo $this->count ;
-            ?>            
-        </th>
-        <th>
-            <?php
-            echo $this->sum ;
-            ?>
-        </th> 
-    </tr>      
-</table>
+<div class="content-title"><!-- заголовок -->
+                    
+    <h3>Отчет</h3>
+</div><!-- end content-title -->
+
+<div class="active-tickets" style="width: 300px; ">
+    <table>
+        <tr>        
+            <th>ФИО</th>
+            <th>Число заказов</th>
+            <th>Сумма</th> 
+        </tr>    
+        <?php
+            // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+            echo $this->partialLoop('partials/report.phtml', $this->report);
+        ?>
+        <tr>        
+            <th>Cумма</th>
+            <th>
+                <?php
+                echo $this->count ;
+                ?>            
+            </th>
+            <th>
+                <?php
+                echo $this->sum ;
+                ?>
+            </th> 
+        </tr>      
+    </table>
+</div>
+<div class="report-block" style="width: 250px; float: left; margin-left: 25px; ">
 <?php
 echo $this->form ;
 ?>
+</div>

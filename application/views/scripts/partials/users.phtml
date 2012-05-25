@@ -5,9 +5,9 @@
     <td><?php echo $this->escape($this->username);?></td>
     <td><?php echo $this->escape($this->password);?></td>
     <td><?php echo $this->escape($this->role);?></td>
-    <td>
-        <a href="<?php echo $this->url(array('controller'=>'admin', 'action'=>'edituser', 'id'=>$this->id));?>">Редактировать</a>
-        <a href="<?php echo $this->url(array('controller'=>'admin', 'action'=>'deleteuser', 'id'=>$this->id));?>">Удалить</a>
+    <td style="text-align: center; " class="active-btn">
+        <a href="<?php echo $this->url(array('controller'=>'admin', 'action'=>'edituser', 'id'=>$this->id));?>"><img src="img/icon_edit.png" alt="" /></a>
+        <a href="<?php echo $this->url(array('controller'=>'admin', 'action'=>'deleteuser', 'id'=>$this->id));?>"><img src="img/icon_del.png" alt="" /></a>
     </td>
 </tr>
 

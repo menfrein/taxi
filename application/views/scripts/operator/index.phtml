@@ -3,48 +3,59 @@
 $this->title = "Заказы";
 $this->headTitle($this->title);
 ?>
-<p><a href="<?php echo $this->url(array('controller'=>'operator','action'=>'addorder'));?>">Добавить заказ</a></p>
-<h1>Список заказов</h1>
-<table>
-    <tr>
-        <th>Время</th>
-        <th>Откуда</th>
-        <th>Куда</th>
-        <th>Имя таксист</th>
-        <th>Телефон таксиста</th>
-        <th>Имя клиент</th>
-        <th>Телефон клиента</th>          
-        <th>Статус</th>
-    </tr>
-    <?php
-        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
-        echo $this->partialLoop('partials/ordersNotAppoint.phtml', $this->ordersNotAppoint);
-    ?>    
-    <tr>
-        <th>Время</th>
-        <th>Откуда</th>
-        <th>Куда</th>
-        <th>Имя таксист</th>
-        <th>Телефон таксиста</th>
-        <th>Имя клиент</th>
-        <th>Телефон клиента</th>          
-        <th>Статус</th>
-    </tr>
-    <?php
-        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
-        echo $this->partialLoop('partials/orders.phtml', $this->orders);
-    ?>
-</table>
-<h1>Список таксистов</h1>
-<table>
-    <tr>        
-        <th>ФИО</th>
-        <th>Телефон</th>
-        <th>Статус</th>                
-        <th>&nbsp;</th> 
-    </tr>    
-    <?php
-        // Создаём patrialLoop, передав массив операторов, полученных от контроллера
-        echo $this->partialLoop('partials/cabdriver_operator.phtml', $this->cabdriver);
-    ?>     
-</table>
+
+
+
+
+
+<p><a class="add-order-link" href="<?php echo $this->url(array('controller'=>'operator','action'=>'addorder'));?>">Добавить заказ</a></p>
+
+<div style="width: 100%; float: left; padding-top: 20px;  ">
+    <h1>Список заказов</h1>
+</div>
+<div class="active-tickets">
+    <table>
+        <tr>
+            <th>Время</th>
+            <th>Откуда</th>
+            <th>Куда</th>
+            <th>Имя таксист</th>
+            <th>Телефон таксиста</th>
+            <th>Имя клиент</th>
+            <th>Телефон клиента</th>          
+            <th>Статус</th>
+            <th></th>
+        </tr>
+        <?php
+            // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+            echo $this->partialLoop('partials/ordersNotAppoint.phtml', $this->ordersNotAppoint);
+        ?>    
+        
+        <?php
+            // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+            echo $this->partialLoop('partials/orders.phtml', $this->orders);
+        ?>
+    </table>
+</div><!-- end active-tickets --> 
+
+<div style="width: 100%; float: left; ">
+    <h1 style="padding-top: 20px; ">Список таксистов</h1>
+</div>
+
+<div class="active-tickets">
+    <table>
+        <tr>        
+            <th>ФИО</th>
+            <th>Телефон</th>
+            <th>Статус</th>                
+            <th>&nbsp;</th> 
+        </tr>    
+        <?php
+            // Создаём patrialLoop, передав массив операторов, полученных от контроллера
+            echo $this->partialLoop('partials/cabdriver_operator.phtml', $this->cabdriver);
+        ?>     
+    </table>
+</div><!-- end active-tickets -->
+
+
+<div class="main-menu-close"></div>

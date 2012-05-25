@@ -14,6 +14,8 @@
 </head>
 <body>
 <?php
+    echo "<div class='user-block'>"; 
+    echo "<div class='user-login'>";
     // Применяем уже знакомый метод для проверки авторизации пользователя
     if (Zend_Auth::getInstance()->hasIdentity()) {
         $url = $this->url(array('controller'=>'auth', 'action'=>'logout'));
@@ -24,11 +26,68 @@
     if (Zend_Auth::getInstance()->hasIdentity()) {
         $url = $this->url(array('controller'=>'admin', 'action'=>'integer'));
         // если пользователь авторизирован, показываем ему кнопку "Выход"
-        echo "<a href=\"{$url}\">На главную</a>";          
-    }    
+        echo "<a href=\"{$url}\">На главную</a>";
+        
+    } 
+    echo "</div><!-- end user-login -->";
+    echo "</div><!-- end user-block -->";
 ?>
-    <div id="content">
-        <?php echo $this->layout()->content; ?>
-    </div>
+    <div id="wrapper">
+        <div id="main">
+            
+            
+            <div class="main-menu"><!-- верхнее красное меню -->
+                <ul>
+                    <li><a href="/admin/integer">Главная</a></li>
+                    <li><a href="/admin/report">Отчет</a></li>
+                    <li><a href="/admin/adduser">Добавление сотрудника</a></li>
+                    <li><a href="/admin/addcabdriver">Добавление таксиста</a></li>
+                </ul>
+            </div><!-- end main-menu -->
+            
+            <div class="content">
+                
+                
+                
+                <?php echo $this->layout()->content; ?>
+            </div>
+            
+            <div class="bottom-shadow"></div><!-- тень снизу -->
+        </div><!-- end main -->
+        
+        
+        
+        
+        
+        <!-- ********** FOOTER ********** -->
+
+        <div id="footer">
+            <div class="footer-menu"><!-- меню, ссылки (в рамке) -->
+                <ul>
+                    <li><a href="/admin/integer">Главная</a></li>
+                    <li>|</li>
+                    <li><a href="/admin/report">Отчет</a></li>
+                    <li>|</li>
+                    <li><a href="/admin/adduser">Добавление сотрудника</a></li>
+                    <li>|</li>
+                    <li><a href="/admin/addcabdriver">Добавление таксиста</a></li> 
+                </ul>
+            </div><!-- end footer-menu -->
+            
+            <div class="footer-bottom"><!-- нижний блок подвала (копирайты, линки) -->
+                <div class="copyrights"><!-- копирайты -->
+                    <p>Copyright © 2012 Такси “<a href="#">Довез!</a>”</p>
+                    <p>Все права защищены.</p>
+                </div><!-- end copyrights -->
+                
+            </div><!-- end footer-bottom -->
+        </div>
+        <!-- end footer -->
+        
+        
+        
+    </div><!-- end wrapper -->
+    
+    
 </body>
 </html>

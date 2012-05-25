@@ -1,42 +1,753 @@
-body,html {
-    margin: 0 5px;
-    font-family: Verdana,sans-serif;
+/* CSS Document */
+
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dt, dd, img, form, fieldset, blockquote {
+    margin:0px;
+    padding:0px;
+    border:0px;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+input, textarea, select, button {font-family: Tahoma, Arial, sans-serif; }
+
+html {height: 100%;}
+
+body {
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    background: #fff url(../img/bg.jpg) center top no-repeat;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 12px;
+    color: #373737;
+}
+
+
+
+/* *** РѕР±С‰РёРµ СЃС‚РёР»Рё РґР»СЏ С‚РµРєСЃС‚Р°, РєРЅРѕРїРѕРє, РїРѕР»РµР№ РІРІРѕРґР° etc. *** */
+
+a {color: #373737; text-decoration: none; }
+a:hover {text-decoration: underline; }
+
 h1 {
-    font-size: 1.4em;
-    color: #000080;
-}
-a {
-    color: #000080;
+    font-size: 22px;
+    margin-top: 10px;
+    color: rgb(44, 183, 120);
 }
 
-/* Таблица */
-th {
-    text-align: left;
-    
-}
-td, th {
-    padding-right: 5px;
-    border-width: 1px;
-    border-style:inset;
-    
+h3 {
+    font-size: 22px;
+    margin-top: 10px;
+    color: rgb(44, 183, 120);
 }
 
-/* Форма */
-form dt {
-    width: 100px;
+
+
+/* ********** WRAPPER ********** */
+
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 0;
+}
+
+#wrapper:after {
+    content: ".";
     display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+/* ********** ********** */
+
+/* ********** HEADER ********** */
+
+#header {
+    width: 100%;
     float: left;
-    clear: left;
+    padding-top: 30px;
 }
-form dd {
-    margin-left: 0;
+
+    /* ****** LOGO ****** */
+    .logo {
+        width: 300px;
+        float: left;
+        padding: 0 10px;
+        text-align: center;
+    }
+    
+    
+    /* ****** USER-BLOCK ****** */
+    .user-block {
+        width: 677px;
+        float: right;
+        padding-top: 11px;
+    }
+    
+        /* *** REG-BUT *** */
+        .reg-but {
+            width: 115px;
+            float: left;
+            padding-top: 15px;
+        }
+        
+            .reg-but img {margin-right: 9px; vertical-align: middle; }
+            
+            .reg-but a:hover {text-decoration: none; }
+            .reg-but a:hover span {text-decoration: underline; }
+        
+        
+        /* *** USER-LOGIN *** */
+        .user-login {
+            width: 535px;
+            float: right;
+            padding: 6px 10px;
+            background: #fff;
+            border: 1px solid #dcdcdc;
+        
+            -moz-border-radius: 9px; /* Firefox */
+            -webkit-border-radius: 9px; /* Safari, Chrome */
+            -khtml-border-radius: 9px; /* KHTML */
+            border-radius: 9px; /* CSS3 */
+            behavior: url(./js/pie.htc); /* IE border-radius */
+        }
+        
+            .user-login table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+                .user-login table span img {margin-right: 7px; vertical-align: middle; }
+                
+                .user-login table button {
+                    padding-top: 4px;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                    vertical-align: middle; 
+                }
+                
+                .user-login input {
+                    
+                    border: none;
+                    background: url(../img/empty.png) repeat; /* for ie8 */
+                    padding: 3px 8px;
+                    font-size: 12px;
+                    color: #373737;
+                    outline: none; 
+                }
+
+/* ********** ********** */
+
+/* ********** MAIN ********** */
+
+#main {
+    width: 100%;
     float: left;
+    padding-top: 30px;
+    position: relative;
 }
-form #submitbutton {
-    margin-left: 100px;
+
+
+    /* ****** MAIN-MENU ****** */
+    .main-menu {
+        width: 980px;
+        float: left;
+        padding: 22px 10px 22px;
+        background: #f35553 url(../img/menu_bg.png) top repeat-x;
+        
+        -moz-border-radius: 10px 10px 0 0; /* Firefox */
+        -webkit-border-radius: 10px 10px 0 0; /* Safari, Chrome */
+        -khtml-border-radius: 10px 10px 0 0; /* KHTML */
+        border-radius: 10px 10px 0 0; /* CSS3 */
+        behavior: url(./js/pie.htc); /* IE border-radius */
+    }
+    
+        .main-menu ul {list-style: none; font-size: 13px; }
+        
+            .main-menu ul li {
+                float: left;
+                padding: 3px 18px;
+                border-left: 1px dotted #991a19;
+            }
+            
+                .main-menu ul li:first-child {border: none; }
+            
+                .main-menu ul li a {color: #fff; }
+
+        .main-menu-close {
+            width: 460px;
+            height: 50px;
+            background: url(../img/main_menu_h.png) top repeat-x;
+            position: absolute;
+            top: 38px;
+            left: 95px;
+            z-index: 100;
+        }
+                
+                
+    /* ****** CONTENT ****** */
+    .content {
+        width: 948px;
+        min-height: 350px;
+        float: left;
+        padding: 25px;
+        background: #f4f4f4 url(../img/inner_main_bg.jpg) left top no-repeat;
+        border: 1px solid #2cb778;
+        
+        -moz-border-radius: 0 0 10px 10px; /* Firefox */
+        -webkit-border-radius: 0 0 10px 10px; /* Safari, Chrome */
+        -khtml-border-radius: 0 0 10px 10px; /* KHTML */
+        border-radius: 0 0 10px 10px; /* CSS3 */
+        behavior: url(./js/pie.htc); /* IE border-radius */
+    }
+    
+    
+        /* *** ACTIVE-TICKETS *** */
+        .active-tickets {
+            width: 100%;
+            float: left;
+            padding-top: 12px;
+        }
+        
+            .active-tickets table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid #aaa;
+                border-radius: 3px;
+            }
+            
+                .active-tickets table th {
+                    border: 1px solid #aaa;
+                    padding: 4px;
+                    text-align: center;
+                    font-weight: normal;
+                }
+            
+                .active-tickets table td {
+                    border: 1px solid #aaa;
+                    padding: 4px;
+                }
+                
+                .active-tickets table .active-btn {text-align: center; }
+                
+                .active-tickets table .active-btn img {margin-right: 10px; vertical-align: middle; }
+    
+                .active-tickets table .active-btn img:hover {
+                    opacity: .7;  /* CSS3  */
+                    -khtml-opacity:	.7;  /*  KHTML */
+                    -moz-opacity:	0.7;  /* Firefox */
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=70)";	/* только для IE8 */
+                    background-color: #f4f4f4;
+                }
+                
+                
+                
+            .active-tickets input, .active-tickets select, .report-block input {
+                margin-top: 4px;
+            }
+            
+            .active-tickets label {display: block; padding-top: 6px; }
+                
+            
+            .active-tickets input[type=submit], .report-block input[type=submit] {
+                height: 22px;
+                padding: 0 7px;
+                margin-right: 10px;
+                background: #f35553;
+                border: 1px solid #cc3937;
+                -moz-border-radius: 5px; /* Firefox */
+                -webkit-border-radius: 5px; /* Safari, Chrome */
+                -khtml-border-radius: 5px; /* KHTML */
+                border-radius: 5px; /* CSS3 */
+                behavior: url(./js/pie.htc); /* IE border-radius */
+                cursor: pointer;
+                color: #fff;                   
+            }
+            
+                .active-tickets input[type=submit]:hover, .report-block input[type=submit]:hover {
+                    background: #f67f7d;
+                    border-color: #df413f;
+                }
+                
+                .active-tickets dl {
+                    width: 400px;
+                }
+                
+                .active-tickets select {
+                    width: 147px;
+                }
+                
+                .active-tickets textarea {
+                    width: 300px;
+                    height: 100px;
+                    margin-top: 4px;
+                    display: block;
+                }
+                
+            .report-block {
+                width: 300px;
+                float: left;
+                padding-top: 15px;
+            }
+            
+            
+            /* ADD-ORDER-LINK */
+            .add-order-link {
+                float: left;
+                padding: 5px 7px;
+                margin-right: 10px;
+                background: #f35553;
+                border: 1px solid #cc3937;
+                -moz-border-radius: 5px; /* Firefox */
+                -webkit-border-radius: 5px; /* Safari, Chrome */
+                -khtml-border-radius: 5px; /* KHTML */
+                border-radius: 5px; /* CSS3 */
+                behavior: url(./js/pie.htc); /* IE border-radius */
+                cursor: pointer;
+                color: #fff;   
+            }
+            
+                .add-order-link:hover {
+                    background: #f67f7d;
+                    border-color: #df413f;
+                    text-decoration: none;
+                }
+                
+            
+                
+    
+        /* *** CONTENT LEFT-COL *** */
+        .content .left-col {
+            width: 240px;
+            float: left;
+        }
+        
+            /* RED-BUTTONS */
+            .red-buttons {
+                width: 100%;
+                float: left;
+            }
+            
+                .red-buttons button {
+                    width: 225px;
+                    height: 98px;
+                    border: none;
+                    background: url(../img/red_button.png) center no-repeat;
+                    margin-top: 16px;
+                    cursor: pointer;
+                }
+
+                    .red-buttons button:hover {
+                        z-index: 10;
+                        opacity: .8;  /* CSS3  */
+                        -khtml-opacity:	.8;  /*  KHTML */
+                        -moz-opacity:	0.8;  /* Firefox */
+                    }
+        
+        
+        /* *** CONTENT RIGHT-COL *** */
+        .content .right-col {
+            width: 675px;
+            float: right;
+            padding: 10px;
+            background: #fff;
+            
+            -moz-border-radius: 7px; /* Firefox */
+            -webkit-border-radius: 7px; /* Safari, Chrome */
+            -khtml-border-radius: 7px; /* KHTML */
+            border-radius: 7px; /* CSS3 */
+            behavior: url(./js/pie.htc); /* IE border-radius */
+        }
+        
+            
+            /* ADD-INFO */
+            .add-info {
+                width: 100%;
+                float: left;
+            }
+            
+                .add-info table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                
+                    .add-info table tr {vertical-align: top; }
+                
+                    .add-info table td {padding-top: 5px; }
+                
+                    .add-info table td:first-child {
+                        width: 218px;
+                        padding-right: 10px;
+                        padding-top: 10px;
+                        text-align: right;
+                    }
+                    
+                    
+                    .add-info input[type=text] {
+                        width: 290px;
+                        padding: 4px 8px 0;
+                        font-size: 12px;
+                        color: #373737;
+                        outline: none;
+                        border: none;
+                        background: none;
+                    }
+                    
+                        .input-300, .input-90, .input-160 {
+                            height: 22px;
+                            float: left;
+                            padding-top: 4px;
+                            background: url(../img/input_bg.png) left top no-repeat;
+                            position: relative;
+                        }
+                        
+                        .input-300 {width: 290px; }
+                        
+                            add-info .input-300 input {width: 290px; }
+                        
+                            .input-right {
+                                width: 8px;
+                                height: 26px;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                background: url(../img/input_bg.png) right bottom no-repeat;
+                            }
+                            
+                            .input-90 {width: 90px; }
+                            
+                                .add-info .input-90 input {width: 80px; }
+                            
+                            .input-160 {width: 150px; }
+                            
+                                .input-160 input {width: 140px; }
+                    
+                    
+                    .add-info input[type=radio] {
+                        margin-right: 5px;
+                    }
+                    
+                    .add-info select {
+                        width: 310px;
+                        padding-left: 10px;
+                        color: #373737;
+                        border: none;
+                        outline: none;
+                    }
+                    
+                        .add-info .sel140 {
+                            width: 130px;
+                            margin-right: 12px;
+                        }
+                    
+                        .add-info .sel220 {
+                            width: 240px;
+                            margin-right: 12px;
+                        }
+                    
+                    .add-info span {
+                        display: block;
+                        margin-top: 5px;
+                        font-size: 11px;
+                    }
+                    
+                    .table-txt {
+                        width: 100%; 
+                        float: left; 
+                        font-size: 11px;
+                    }
+                    
+                    
+                    .add-info textarea {
+                        width: 432px;
+                        height: 70px;
+                        padding: 8px 7px;
+                        color: #373737;
+                        outline: none;
+                        border: none;
+                        font-size: 12px;
+                        background: url(../img/textarea_bg.jpg) left top no-repeat;
+                        resize:none; 
+                        overflow: auto;
+                    }
+                    
+                    .add-info button {
+                        border: none;
+                        background: none;
+                        cursor: pointer;
+                    }
+                    
+                    .add-info em {
+                        font-style: normal;
+                        color: #bbb;
+                    }
+                    
+                    
+                    .between-b {float: left; margin: 7px 4px 0 5px; }
+                    
+                    
+                    
+                    .add-info input[type=submit], .add-info input[type=reset], .add-info input[type=button] {
+                        height: 22px;
+                        padding: 0 7px;
+                        margin-right: 10px;
+                        background: #f35553;
+                        border: 1px solid #cc3937;
+                        -moz-border-radius: 5px; /* Firefox */
+                        -webkit-border-radius: 5px; /* Safari, Chrome */
+                        -khtml-border-radius: 5px; /* KHTML */
+                        border-radius: 5px; /* CSS3 */
+                        behavior: url(./js/pie.htc); /* IE border-radius */
+                        cursor: pointer;
+                        color: #fff;                        
+                    }
+                    
+                        .add-info input[type=submit]:hover, .add-info input[type=reset]:hover, .add-info input[type=button]:hover {
+                            background: #f67f7d;
+                            border-color: #df413f;
+                        }
+                    
+                
+                /* STYLIZE RADIO */
+                .niceRadio {
+                    width: 16px;
+                    height: 16px;
+                    float: left;
+                    display: inline-block;
+                    cursor: pointer;
+                    background: url(../img/stylize_radio.png);
+                    overflow: hidden;
+                }
+                .radioChecked {background-position: 0 -16px; }
+                .niceRadio input {margin-left: -17px; }
+                
+                   
+                    
+                /* STYLIZE CHECKBOX */
+                .niceCheck {
+                    width: 19px;
+                    height: 17px;
+                    float: left;
+                    display: inline-block;
+                    cursor: pointer;
+                    background: url(../img/stylize_checkbox.png);
+                }
+                    
+                    .niceCheck input {
+                        display: none;
+                    }
+                    
+                    
+                    
+                /* STYLIZE SELECT */
+                #wrapper .sel300 {
+                    width: 290px;
+                    margin-bottom: 5px;
+                }
+                
+
+
+                        /* *** BOTTOM-SHADOW *** */
+                        .bottom-shadow {
+                            width: 100%;
+                            height: 23px;
+                            float: left;
+                            background: url(../img/main_shadow.jpg) center top no-repeat;
+                        }
+                
+                
+                
+                
+    /* ****** INDEX-CONTENT ****** */
+    .index-content {
+        width: 944px;
+        height: 350px;
+        float: left;
+        padding: 10px 30px 10px 26px;
+        margin-bottom: 23px;
+        position: relative;
+        z-index: 100;
+        background: url(../img/index_main_bg.jpg) left top no-repeat;
+        
+        -moz-border-radius: 0 0 10px 10px; /* Firefox */
+        -webkit-border-radius: 0 0 10px 10px; /* Safari, Chrome */
+        -khtml-border-radius: 0 0 10px 10px; /* KHTML */
+        border-radius: 0 0 10px 10px; /* CSS3 */
+        behavior: url(./js/pie.htc); /* IE border-radius */
+    }
+    
+        .index-content p {margin-top: 20px; }
+        
+        .index-content a {color: #fff; }
+    
+        .index-girl {
+            position: absolute;
+            top: 10px;
+            left: 184px;
+            z-index: 100;
+        }
+        
+        
+        /* *** INDEX-CONTENT LEFT-COL *** */
+        .index-content .left-col {
+            width: 290px;
+            float: left;
+        }
+        
+            .index-content .left-col button {
+                width: 225px;
+                height: 98px;
+                border: none;
+                background: url(../img/red_button.png) center no-repeat;
+                margin-top: 16px;
+                cursor: pointer;
+            }
+            
+                .index-content .left-col button:hover {
+                    z-index: 10;
+                    opacity: .8;  /* CSS3  */
+                    -khtml-opacity:	.8;  /*  KHTML */
+                    -moz-opacity:	0.8;  /* Firefox */
+                }
+                
+                
+                
+        /* *** INDEX-CONTENT RIGHT-COL *** */
+        .index-content .right-col {
+            width: 510px;
+            float: right;
+            padding-top: 20px;
+            color: #fff;
+        }
+        
+            /* CONTENT-TITLE */
+            .content-title {
+                width: 100%;
+                float: left;
+                padding: 10px 0;
+            }
+            
+                .index-content .content-title {margin-left: -38px; }
+            
+                .content-title h1 {
+                    font-size: 35px;
+                    color: #2cb778;
+                }
+            
+                .content-title h3 {
+                    font-size: 22px;
+                    color: #2cb778;
+                }
+            
+            /* BOTTOM-LINKS */
+            .bottom-links {
+                width: 100%;
+                float: left;
+                padding-top: 24px;
+                font-size: 11px;
+            }
+            
+                .bottom-links ul {list-style: none; }
+                
+                    .bottom-links ul li {
+                        float: left;
+                        padding-right: 20px;
+                    }
+                    
+                    .bottom-links a:hover {text-decoration: none; }
+                    .bottom-links a:hover span {text-decoration: underline; }
+                    
+                    .bottom-links ul li img {margin-right: 10px; vertical-align: middle; }
+    
+    /* ****** end index-content *** */
+    
+    
+    /* ****** BOTTOM-PATTERN ****** */
+    .bottom-pattern {
+        width: 1000px;
+        height: 294px;
+        position: absolute;
+        bottom: -269px;
+        left: 0;
+        z-index: 50;
+        background: url(../img/index_bottom_pattern.jpg) left top no-repeat;
+    }
+                
+/* ********** ********** */
+
+/* ********** FOOTER ********** */
+
+#footer {
+    width: 100%;
+    float: left;
+    position: relative;
+    z-index: 100;
 }
-textarea {
-    height: 50px;
-    width: 200px; 
-}
+
+    /* ****** FOOTER-MENU ****** */
+    .footer-menu {
+        width: 946px;
+        float: left;
+        padding: 23px 26px;
+        background: #fff;
+        border: 1px solid #dcdcdc;
+        
+        -moz-border-radius: 10px; /* Firefox */
+        -webkit-border-radius: 10px; /* Safari, Chrome */
+        -khtml-border-radius: 10px; /* KHTML */
+        border-radius: 10px; /* CSS3 */
+        behavior: url(./js/pie.htc); /* IE border-radius */
+    }
+    
+        .footer-menu ul {
+            list-style: none;
+            color: #cecece;
+            font-size: 14px;
+        }
+
+            .footer-menu ul li {float: left; padding-right: 12px; }
+
+                .footer-menu ul li a {font-size: 12px; }
+                
+
+    /* ****** FOOTER-BOTTOM ****** */
+    .footer-bottom {
+        width: 100%;
+        float: left;
+        padding-top: 16px;
+        font-size: 11px;
+        color: #999;
+        line-height: 15px;
+    }
+    
+        .footer-bottom a {color: #999; }
+
+        /* *** COPYRIGHTS *** */
+        .copyrights {
+            width: 475px;
+            float: left;
+            padding-left: 26px;
+        }
+        
+            .copyrights a {color: #f45654; }
+            .copyrights a span {color: #2cb778; }
+        
+        
+        /* *** SITE-LINKS *** */
+        .site-links {
+            width: 375px;
+            float: right;
+            padding-right: 26px;
+        }
+        
+            .site-links ul {float: right; list-style: none; }
+            
+                .site-links ul li {float: left; padding-left: 11px; }
+
+/* ********** ********** */
+
