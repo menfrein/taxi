@@ -691,6 +691,7 @@ h3 {
 
     /* ****** FOOTER-MENU ****** */
     .footer-menu {
+        display: none;
         width: 946px;
         float: left;
         padding: 23px 26px;
