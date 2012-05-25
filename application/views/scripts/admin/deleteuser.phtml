@@ -2,15 +2,20 @@
     $this->title = "Удаление сотрудника";
     $this->headTitle($this->title);
 ?>
-<p>Вы действительно хотите удалить сотрудника 
-    '<?php echo $this->escape($this->user['name']); ?>' с контрактом №
-    <?php echo $this->escape($this->user['contract']); ?> и телефоном 
-    <?php echo $this->escape($this->user['phone']); ?>?
-</p>
-<form action="<?php echo $this->url(array('action'=>'deleteuser')); ?>" method="post">
-    <div>
-        <input type="hidden" name="id" value="<?php echo $this->user['id']; ?>" />
-        <input type="submit" name="del" value="Да" />
-        <input type="submit" name="del" value="Нет" />
-    </div>
-</form>
+
+<h1>Удаление сотрудника</h1>
+
+<div class='active-tickets' style='width: 450px; '>
+    <p style="font-size: 15px;">Вы действительно хотите удалить сотрудника 
+        '<?php echo $this->escape($this->user['name']); ?>' с контрактом <span style="color: #208758; ">№ 
+        <?php echo $this->escape($this->user['contract']); ?> </span> и телефоном <span style="color: #208758; ">
+        <?php echo $this->escape($this->user['phone']); ?></span>?
+    </p>
+    <form action="<?php echo $this->url(array('action'=>'deleteuser')); ?>" method="post" style="margin-top: 15px; ">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->user['id']; ?>" />
+            <input type="submit" name="del" value="Да" />
+            <input type="submit" name="del" value="Нет" />
+        </div>
+    </form>
+</div>

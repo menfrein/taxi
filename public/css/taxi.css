@@ -233,6 +233,24 @@ h3 {
                     padding: 4px;
                 }
                 
+                .active-tickets input[type=checkbox] {
+                    float: left;
+                    position: relative;
+                    bottom: -4px;
+                    margin-right: 8px;
+                }
+                
+                .operator-cancelorder input[type=checkbox]{
+                    float: none;
+                    margin-right: 8px;
+                    bottom: 0;
+                    top: -17px;
+                }
+                
+                .operator-cancelorder #fault_t-label, .operator-cancelorder #fault_c-label, .operator-cancelorder #parking-label {
+                    margin-left: 20px;
+                }
+                
                 .active-tickets table .active-btn {text-align: center; }
                 
                 .active-tickets table .active-btn img {margin-right: 10px; vertical-align: middle; }
@@ -307,7 +325,7 @@ h3 {
                 -webkit-border-radius: 5px; /* Safari, Chrome */
                 -khtml-border-radius: 5px; /* KHTML */
                 border-radius: 5px; /* CSS3 */
-                behavior: url(./js/pie.htc); /* IE border-radius */
+                behavior: url(../js/pie.htc); /* IE border-radius */
                 cursor: pointer;
                 color: #fff;   
             }
@@ -691,9 +709,9 @@ h3 {
 
     /* ****** FOOTER-MENU ****** */
     .footer-menu {
-        display: none;
         width: 946px;
         float: left;
+        display: none;
         padding: 23px 26px;
         background: #fff;
         border: 1px solid #dcdcdc;
@@ -752,3 +770,12 @@ h3 {
 
 /* ********** ********** */
 
+
+
+/* *** INDEX-OPERATOR *** */
+.index-operator table a {
+    color: #208758;
+    text-decoration: underline;
+}
+
+    .index-operator table a:hover {text-decoration: none; }

@@ -2,7 +2,13 @@
     $this->title = "Отменить заказ";
     $this->headTitle($this->title);
     
+    echo "<div class='content-title'>";
+    echo "<h3>Отмена заказа</h3>"; 
+    echo "</div><!-- end content-title -->";  
+    
     // Выводим форму, полученную из контроллера
+    echo "<div class='active-tickets operator-cancelorder' style='width: 550px; '>";
     echo $this->form ;
     echo "<div class='main-menu-close'></div>";
+    echo "</div>"
 ?>

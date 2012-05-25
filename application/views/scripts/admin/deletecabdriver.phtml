@@ -2,15 +2,20 @@
     $this->title = "Удаление таксиста";
     $this->headTitle($this->title);
 ?>
-<p>Вы действительно хотите удалить таксиста 
-    '<?php echo $this->escape($this->cabdriver['name']); ?>' с контрактом №
-    <?php echo $this->escape($this->cabdriver['contract']); ?> и телефоном 
-    <?php echo $this->escape($this->cabdriver['phone']); ?>?
-</p>
-<form action="<?php echo $this->url(array('action'=>'deletecabdriver')); ?>" method="post">
-    <div>
-        <input type="hidden" name="id" value="<?php echo $this->cabdriver['id']; ?>" />
-        <input type="submit" name="del" value="Да" />
-        <input type="submit" name="del" value="Нет" />
-    </div>
-</form>
+
+<h1>Удаление сотрудника</h1>
+
+<div class='active-tickets' style='width: 450px; '>
+    <p style="font-size: 15px;">Вы действительно хотите удалить таксиста <span style="color: #208758; ">
+        '<?php echo $this->escape($this->cabdriver['name']); ?>'</span> с контрактом <span style="color: #208758; ">№
+        <?php echo $this->escape($this->cabdriver['contract']); ?></span> и телефоном <span style="color: #208758; ">
+        <?php echo $this->escape($this->cabdriver['phone']); ?></span>?
+    </p>
+    <form action="<?php echo $this->url(array('action'=>'deletecabdriver')); ?>" method="post" style="margin-top: 15px; ">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->cabdriver['id']; ?>" />
+            <input type="submit" name="del" value="Да" />
+            <input type="submit" name="del" value="Нет" />
+        </div>
+    </form>
+</div>
