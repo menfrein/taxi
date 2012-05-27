@@ -1,5 +1,5 @@
 <?php
-
+//require_once '\Zend\Controller\Action.php';
 class AdminController extends Zend_Controller_Action
 {
 
@@ -135,6 +135,7 @@ class AdminController extends Zend_Controller_Action
             }
         
         
+    
     }
     }
     public function deleteuserAction()
@@ -169,6 +170,7 @@ class AdminController extends Zend_Controller_Action
             // Достаём запись и передаём в view
             $this->view->user = $users->getUser($id); 
         
+    
     }
     }
     public function addcabdriverAction()
@@ -258,6 +260,7 @@ class AdminController extends Zend_Controller_Action
     
  
     
+    
     }
     }
     public function editcabdriverAction()
@@ -319,6 +322,7 @@ class AdminController extends Zend_Controller_Action
             }
         
     
+    
     }
     }
     public function reportAction()
@@ -353,7 +357,15 @@ class AdminController extends Zend_Controller_Action
                 $this->view->report = $report->getReport($date, $status);
     }
 
+    public function informationAction()
+    {
+        // action body
+    }
+
+
 }
+
+
 
 
 

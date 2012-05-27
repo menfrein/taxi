@@ -779,3 +779,31 @@ h3 {
 }
 
     .index-operator table a:hover {text-decoration: none; }
+    
+    
+/* *** help-btn *** */
+.help-btn {
+    position: absolute;
+    top: 51px;
+    right: 22px;
+    z-index: 200;
+    
+}
+
+
+/* *** view-content *** */
+#view-content {
+    width: 90%;
+    float: left;
+    font-size: 13px;
+}
+
+#view-content h1 {margin-bottom: 15px; }
+
+#view-content p {margin-top: 10px; }
+
+#wrapper #view-content ul {list-style: none; }
+
+#view-content li {
+    padding-top: 10px;
+}

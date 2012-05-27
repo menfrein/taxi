@@ -109,9 +109,9 @@ class OperatorController extends Zend_Controller_Action
             }
         
         
+    
     }
     }
-
     public function closeorderAction()
     {
                 // Создаём форму
@@ -176,9 +176,9 @@ class OperatorController extends Zend_Controller_Action
             }
         
         
+    
     }
     }
-
     public function addorderAction()
     {
         // Создаём форму
@@ -227,9 +227,9 @@ class OperatorController extends Zend_Controller_Action
                 // той информацией, которую ввёл пользователь
                 $form->populate($formData);
             }        
-        }
+        
     }
-
+    }
     public function cancelorderAction()
     {
         // Создаём форму
@@ -322,7 +322,8 @@ class OperatorController extends Zend_Controller_Action
                 // Используем библиотечный helper для редиректа на action = index
                 $this->_helper->redirector('operator');
 
-         }
+         
+    }
     }
     public function cancelcabdriverAction()
     {
@@ -340,7 +341,15 @@ class OperatorController extends Zend_Controller_Action
         $this->_helper->redirector('operator');
     }
 
+    public function informationAction()
+    {
+        // action body
+    }
+
+
 }
+
+
 
 
 
