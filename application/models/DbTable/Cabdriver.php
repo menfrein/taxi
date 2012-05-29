@@ -5,6 +5,26 @@ class Application_Model_DbTable_Cabdriver extends Zend_Db_Table_Abstract
     // Имя таблицы, с которой будем работать
     protected $_name = 'cabdriver';
     //Получение всех таксистов (сортированный список)
+    public function getAll()
+        {
+            // Создаем объект Zend_Db_Select
+            $select = $this->getAdapter()->select()
+                // Таблица из которой делается выборка
+                ->from($this->_name)
+                // Добавление таблицы с помощью join, указывается поле связи
+                //->join('cabdriver','cabdriver.id = order.id_cab',array('phone','name'))
+                // Порядок сортировки
+                ->order('id ASC')
+                // Количество возвращаемых записей
+                //->limit(2)
+                ;
+            $stmt = $this->getAdapter()->query($select);
+            // Получение данных в виде массива объектов, по умолчанию в виде массива ассоциативных массивов
+            $result = $stmt->fetchAll(Zend_Db::FETCH_OBJ);        
+
+            return $result;
+        }    
+    //Получение всех таксистов (сортированный список)
     public function getCabdrivers()
         {
             // Создаем объект Zend_Db_Select

@@ -60,5 +60,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         // регистрируем плагин с названием AccessCheck, в который передаём
         // на ACL и экземпляр Zend_Auth
         $fc->registerPlugin(new Application_Plugin_AccessCheck($acl, Zend_Auth::getInstance()));
+        
+        
     }
+    
 }

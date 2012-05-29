@@ -1,4 +1,4 @@
-<phpunit bootstrap="./bootstrap.php">
+<phpunit bootstrap="./application/bootstrap.php">
     <testsuite name="Application Test Suite">
         <directory>./application</directory>
     </testsuite>
@@ -14,7 +14,5 @@
         </whitelist>
         -->
     </filter>
-987
-123
-456
+
 </phpunit>

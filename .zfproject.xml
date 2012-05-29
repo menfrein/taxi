@@ -75,6 +75,7 @@
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="Order"/>
           <dbTableFile dbTableName="Report"/>
+          <dbTableFile dbTableName="Tdb"/>
         </dbTableDirectory>
         <modelFile modelName="T"/>
       </modelsDirectory>
