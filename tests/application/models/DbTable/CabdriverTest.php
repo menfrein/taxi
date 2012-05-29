@@ -58,7 +58,7 @@ class Application_Model_DbTable_CabdriverTest extends ControllerTestCase
 	
 	}        
 	public function deleteCabdriver($id){
-                print_r ($id);
+                //print_r ($id);
 		$this->object->deleteCabdriver($id);				
 		$te = $this->object->getAll();
                 $val = (array)end($te);
